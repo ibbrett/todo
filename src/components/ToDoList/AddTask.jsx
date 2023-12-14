@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import React, { useState } from "react"
 import { clog } from "../../lib"
 
 const AddTask = ({onAddTask}) => {
@@ -21,4 +21,5 @@ const AddTask = ({onAddTask}) => {
 
 }
 
-export default AddTask
+const MemoizedAddTask = React.memo(AddTask)
+export default MemoizedAddTask

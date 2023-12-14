@@ -1,0 +1,49 @@
+/* eslint-disable react/prop-types */
+import React, { useState } from "react"
+import { mlog, clog } from "../../lib"
+
+const AddTask = ({onAddTask}) => {
+  clog('AddTask');
+
+  const [taskName, setTaskName] = useState("")
+
+  const handleClick = () => {
+    onAddTask(taskName)
+    setTaskName('')
+  }
+
+  return (
+    <div className="add-task">
+    <input className="txt" type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
+    <button className="btn" onClick={handleClick}>Add Task</button>
+    </div>
+  )
+
+}
+
+
+
+
+function addTaskPropsAreEqual(p, n) {
+  const pt = p.task;
+  const nt = n.task;
+
+  // existing items do not re-render now
+  /*
+  const condition = pt.id === nt.id && pt.done === nt.done && pt.text === nt.text;
+   if (!condition){
+    mlog('taskItemPropsAreEqual', condition, pt.done, nt.done, 're-render task')
+   }
+  return condition;
+  */
+  console.log('addTaskPropsAreEqual', p, n)
+  const condition = true;
+  return condition;
+}
+
+
+
+
+
+const MemoizedAddTask = React.memo(AddTask, addTaskPropsAreEqual)
+export default MemoizedAddTask

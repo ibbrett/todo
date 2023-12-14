@@ -1,5 +1,4 @@
-// import { useState } from 'react'
-import { useReducer } from 'react'
+import { useReducer, useCallback } from 'react'
 import { tasksReducer } from './reducer'
 import AddTask from './AddTask'
 import TaskList from './TaskList'
@@ -19,15 +18,14 @@ function ToDoList() {
   clog('ToDoList');
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks)
 
-  
-  function handleAddTask(text) {
+  const handleAddTask = useCallback((text) => {
     dispatch({
       type: 'added',
       id: nextId++,
       text: text,
-    });
-  }
-
+    })
+  },[]);
+  
   function handleChangeTask(task) {
     hlog('handleChangeTask', task);
     dispatch({
