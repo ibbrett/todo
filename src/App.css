@@ -41,7 +41,8 @@
   color: #888;
 }
 
-#to-do-list, #candy-dispenser {
+#to-do-list,
+#candy-dispenser {
   background-color: white;
   border: 5px solid green;
   border-radius: 8px;
@@ -56,14 +57,15 @@
     }
   }
 
-  .task-list, .candy-list {
+  .task-list,
+  .candy-list {
     .list {
       padding: 0;
       list-style: none;
       .item {
         margin-bottom: 8px;
         .chk {
-          border: 5px solid pink
+          border: 5px solid pink;
         }
         .btn {
           margin-left: 8px;
@@ -78,5 +80,4 @@
       }
     }
   }
-
 }

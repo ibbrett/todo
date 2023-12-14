@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react"
-import { clog } from "../../lib"
+import React, { useState } from 'react'
+import { clog } from '../../lib'
 
-const AddTask = ({onAddTask}) => {
-  clog('AddTask');
+const AddTask = ({ onAddTask }) => {
+  clog('AddTask')
 
-  const [taskName, setTaskName] = useState("")
+  const [taskName, setTaskName] = useState('')
 
   const handleClick = () => {
     onAddTask(taskName)
@@ -14,11 +14,17 @@ const AddTask = ({onAddTask}) => {
 
   return (
     <div className="add-task">
-    <input className="txt" type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
-    <button className="btn" onClick={handleClick}>Add Task</button>
+      <input
+        className="txt"
+        type="text"
+        value={taskName}
+        onChange={e => setTaskName(e.target.value)}
+      />
+      <button className="btn" onClick={handleClick}>
+        Add Task
+      </button>
     </div>
   )
-
 }
 
 const MemoizedAddTask = React.memo(AddTask)

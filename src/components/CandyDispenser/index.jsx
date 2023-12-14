@@ -1,6 +1,6 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback } from 'react'
 function CandyDispenser() {
-  console.log('CandyDispenser render', new Date());
+  console.log('CandyDispenser render', new Date())
   const initialCandies = ['snickers', 'skittles', 'twix', 'milky way', 'reeses']
   const [candies, setCandies] = useState(initialCandies)
   /*
@@ -10,14 +10,14 @@ function CandyDispenser() {
 
   /**
    * this is when NOT to use a useCallback
-   * 
-   *    With useCallback the original dispense function won't get garbage collected 
+   *
+   *    With useCallback the original dispense function won't get garbage collected
    *    and a new one is created, so you're worse-off from a memory perspective.
-   *    
-   *    The useCallback version is doing more work. 
-   *    Not only do we have to define the function, 
-   *    but we also have to define an array ([]) 
-   *    and call the React.useCallback which itself is 
+   *
+   *    The useCallback version is doing more work.
+   *    Not only do we have to define the function,
+   *    but we also have to define an array ([])
+   *    and call the React.useCallback which itself is
    *    setting properties/running through logical expressions etc.
    */
   const dispense = useCallback(candy => {
@@ -44,4 +44,4 @@ function CandyDispenser() {
   )
 }
 
-export {CandyDispenser};
+export { CandyDispenser }
