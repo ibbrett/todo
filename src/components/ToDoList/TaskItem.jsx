@@ -7,9 +7,12 @@ const TaskItem = ({ task, onChangeTask, onDeleteTask }) => {
 
   const [editModeOn, setEditModeOn] = useState(false)
   const [taskText, setTaskText] = useState(task.text)
+
   const onToggleEdit = () => {
+    // if edit mode on proceed with possible task text update
     if (editModeOn) {
       console.log('task.text === taskText', task.text === taskText)
+      // if text has changed save updated task
       if (task.text !== taskText) {
         console.log('task has changed, update reducer with taskClone')
         const taskClone = { ...task }
@@ -17,6 +20,8 @@ const TaskItem = ({ task, onChangeTask, onDeleteTask }) => {
         onChangeTask(taskClone)
       }
     }
+
+    // toggle between Edit and Save
     setEditModeOn(prev => (prev = !prev))
   }
 
