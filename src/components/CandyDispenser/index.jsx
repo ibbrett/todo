@@ -24,16 +24,16 @@ function CandyDispenser() {
     setCandies(allCandies => allCandies.filter(c => c !== candy))
   }, [])
   return (
-    <div>
+    <div id="candy-dispenser">
       <h1>Candy Dispenser</h1>
-      <div>
+      <div className="candy-list">
         <div>Available Candy</div>
         {candies.length === 0 ? (
           <button onClick={() => setCandies(initialCandies)}>refill</button>
         ) : (
-          <ul>
+          <ul className="list">
             {candies.map(candy => (
-              <li key={candy}>
+              <li className="item" key={candy}>
                 <button onClick={() => dispense(candy)}>grab</button> {candy}
               </li>
             ))}

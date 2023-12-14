@@ -14,7 +14,7 @@ const AddTask = ({onAddTask}) => {
 
   return (
     <div className="add-task">
-      <input className="txt" type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
+    <input className="txt" type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
     <button className="btn" onClick={handleClick}>Add Task</button>
     </div>
   )

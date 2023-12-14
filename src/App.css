@@ -41,34 +41,22 @@
   color: #888;
 }
 
-#to-do-list {
+#to-do-list, #candy-dispenser {
   background-color: white;
   border: 5px solid green;
   border-radius: 8px;
-  padding: 8px;
+  padding: 42px;
   color: blue; /* red */
 
   .add-task {
-
-    /* background-color: orange; */
-
     .txt {
       background-color: white;
       color: black;
       margin: 0 8px 0 0;
     }
-
-    /*
-
-    .btn {
-      background-color: black;
-      color: white;
-    }
-    */
-
   }
 
-  .task-list {
+  .task-list, .candy-list {
     .list {
       padding: 0;
       list-style: none;

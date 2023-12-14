@@ -3,16 +3,16 @@ import { useReducer } from 'react'
 import { tasksReducer } from './reducer'
 import AddTask from './AddTask'
 import TaskList from './TaskList'
-import { clog } from '../../lib';
+import { clog, hlog } from '../../lib';
 
 // incremented during "added" action
 let nextId = 3; 
 
 // initial values set with this object ... the reducer handles the rest (incrementing id and updating list)
 const initialTasks = [
-  { id: 0, text: 'Visit Kafka Museum', done: true },
-  { id: 1, text: 'Watch a puppet show', done: false },
-  { id: 2, text: 'Lennon Wall pic', done: false }
+  { id: 0, text: 'Punish the monkey', done: true },
+  { id: 1, text: 'Let the organ grinder go', done: false },
+  { id: 2, text: 'Memento mori', done: false }
 ];
 
 function ToDoList() {
@@ -29,7 +29,7 @@ function ToDoList() {
   }
 
   function handleChangeTask(task) {
-    console.log('handleChangeTask', task);
+    hlog('handleChangeTask', task);
     dispatch({
       type: 'changed',
       task: task
