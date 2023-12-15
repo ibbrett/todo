@@ -1,7 +1,7 @@
 // import { ViteTemplate } from './components/ViteTemplate'
-import { ToDoList } from './components/ToDoList'
 // import { Parent } from './components/MemoComponent';
 // import { CandyDispenser } from './components/CandyDispenser';
+import { ToDoList } from './components/ToDoList'
 import './App.css'
 import { clog } from './lib'
 

@@ -25,7 +25,6 @@ const TaskItem = ({ task, onChangeTask, onDeleteTask }) => {
     setEditModeOn(prev => (prev = !prev))
   }
 
-  // change this
   const handleCheckClicked = () => {
     const scopedTask = { ...task }
     scopedTask.done = !scopedTask.done
@@ -68,8 +67,6 @@ const TaskItem = ({ task, onChangeTask, onDeleteTask }) => {
 function taskItemPropsAreEqual(p, n) {
   const pt = p.task
   const nt = n.task
-
-  // existing items do not re-render now
   const condition =
     pt.id === nt.id && pt.done === nt.done && pt.text === nt.text
   if (!condition) {

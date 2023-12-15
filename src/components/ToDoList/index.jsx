@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react'
-import { tasksReducer } from './reducer'
+import { reducer } from './reducer'
 import AddTask from './AddTask'
 import TaskList from './TaskList'
 import { clog, hlog } from '../../lib'
@@ -7,7 +7,7 @@ import { clog, hlog } from '../../lib'
 // incremented during "added" action
 let nextId = 3
 
-// initial values set with this object ... the reducer handles the rest (incrementing id and updating list)
+// initial reducer values
 const initialTasks = [
   { id: 0, text: 'Punish the monkey', done: true },
   { id: 1, text: 'Let the organ grinder go', done: false },
@@ -16,7 +16,7 @@ const initialTasks = [
 
 function ToDoList() {
   clog('ToDoList')
-  const [tasks, dispatch] = useReducer(tasksReducer, initialTasks)
+  const [state, dispatch] = useReducer(reducer, initialTasks)
 
   const handleAddTask = useCallback(text => {
     dispatch({
@@ -34,10 +34,11 @@ function ToDoList() {
     })
   }
 
-  function handleDeleteTask(taskId) {
+  function handleDeleteTask(id) {
+    hlog('handleDeleteTask', 'task id', id)
     dispatch({
       type: 'deleted',
-      id: taskId,
+      id: id,
     })
   }
 
@@ -45,13 +46,24 @@ function ToDoList() {
     <>
       <div id="to-do-list">
         <h2>Todo (task) List</h2>
+        <ul style={{ color: 'brown', listStyle: 'none', padding: 0 }}>
+          <lh>
+            get to know reducer() functions and the useReducer() hook const
+          </lh>
+          <li style={{ paddingLeft: '24px' }}>
+            [state, dispatch] = useReducer(reducer, initialArg, init?) const
+          </li>
+          <li style={{ paddingLeft: '24px' }}>
+            [state, dispatch] = useReducer(reducer, initialTasks)
+          </li>
+        </ul>
         <AddTask onAddTask={handleAddTask} />
         <TaskList
-          tasks={tasks}
+          tasks={state}
           onChangeTask={handleChangeTask}
           onDeleteTask={handleDeleteTask}
         />
-        <pre>{tasks.length > 0 && JSON.stringify(tasks, null, 2)}</pre>
+        <pre>{state.length > 0 && JSON.stringify(state, null, 2)}</pre>
       </div>
     </>
   )

@@ -1,36 +1,38 @@
 import { alog } from '../../lib'
-function tasksReducer(tasks, action) {
+
+// reducer of type (state, action) => newState
+function reducer(state, action) {
   switch (action.type) {
     case 'added': {
-      const newTask = {
+      const newState = {
         id: action.id,
         text: action.text,
         done: false,
       }
-      alog('added', newTask)
-      return [...tasks, newTask]
+      alog('added', newState)
+      return [...state, newState]
     }
     case 'changed': {
-      const updatedTasks = tasks.map(t => {
+      const newState = state.map(t => {
         if (t.id === action.task.id) {
           return action.task
         } else {
           return t
         }
       })
-      alog('changed', tasks, updatedTasks)
-      return updatedTasks
+      alog('changed', state, newState)
+      return newState
     }
     case 'deleted': {
       alog('deleted', 'task.id', action.id)
-      return tasks.filter(t => t.id !== action.id)
+      return state.filter(t => t.id !== action.id)
     }
     default: {
       throw Error('Unknown action: ' + action.type)
-      // alt: simply return tasks
-      // return tasks;
+      // alt: simply return state
+      // return state;
     }
   }
 }
 
-export { tasksReducer }
+export { reducer }
