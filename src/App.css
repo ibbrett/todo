@@ -81,3 +81,17 @@
     }
   }
 }
+
+#projects {
+  .project-card {
+    height: 500px;
+    width: 350px;
+    background-color: pink;
+    .card-actions {
+      background-color: cyan;
+      .action {
+        background-color: orange;
+      }
+    }
+  }
+}

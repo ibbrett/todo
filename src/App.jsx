@@ -1,7 +1,8 @@
-// import { ViteTemplate } from './components/ViteTemplate'
-// import { Parent } from './components/MemoComponent';
-// import { CandyDispenser } from './components/CandyDispenser';
-import { ToDoList } from './components/ToDoList'
+// import { ViteTemplate as LoveIsBlindness } from './components/ViteTemplate'
+// import { Parent as LoveIsBlindness } from './components/MemoComponent'
+// import { CandyDispenser as LoveIsBlindness } from './components/CandyDispenser'
+// import { ToDoList as LoveIsBlindness } from './components/ToDoList'
+import { Projects as LoveIsBlindness } from './components/Projects'
 import './App.css'
 import { clog } from './lib'
 
@@ -9,7 +10,7 @@ function App() {
   clog('App')
   return (
     <>
-      <ToDoList />
+      <LoveIsBlindness />
     </>
   )
 }
